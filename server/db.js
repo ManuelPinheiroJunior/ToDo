@@ -1,12 +1,25 @@
-const Pool = require('pg').Pool
+const postgres = require('postgres');
 require('dotenv').config()
 
-const pool = new Pool({
-    user: 'postgres',
-    password: 'postgres',
-    host: 'localhost',
-    port: '5432',
-    database: 'todoapp'
+let { PGHOST, PGDATABASE, PGUSER, PGPASSWORD, ENDPOINT_ID } = process.env;
+
+const sql = postgres({
+    host: PGHOST,
+    database: PGDATABASE,
+    username: PGUSER,
+    password: PGPASSWORD,
+    port: 5432,
+    ssl: 'require',
+    connection: {
+      options: `project=${ENDPOINT_ID}`,
+    },
 })
 
-module.exports = pool
+async function getPgVersion() {
+  const result = await sql`select version()`;
+  console.log('database connected', result[0].version);
+}
+
+getPgVersion();
+
+module.exports = sql
