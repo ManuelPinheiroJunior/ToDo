@@ -4,8 +4,7 @@
   "description": "to-do-List",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon server.js",
-    "deploy": "node server.js"
+    "start": "nodemon server.js"
   },
   "author": "",
   "license": "ISC",
