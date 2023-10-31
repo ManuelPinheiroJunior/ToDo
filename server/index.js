@@ -7,8 +7,8 @@ const sql = require('./src/db')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 
-app.use(cors())
 app.use(express.json())
+app.use(cors())
 
 
 app.get('/', async (req, res) => {
