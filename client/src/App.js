@@ -37,7 +37,7 @@ function App() {
     {!authToken && <Auth /> }
     {authToken && 
     <>
-    <ListHeader listName={"holiday tick List"} getData={getData} />
+    <ListHeader listName={"My Task List"} getData={getData} />
     <p className='user-email'>Welcome Back {userEmail}</p>
     {sortedTasks?.map((task) => <ListItem key={task.id} getData={getData} task={task} />)}
     </> }

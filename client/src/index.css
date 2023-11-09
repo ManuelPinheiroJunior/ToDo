@@ -6,6 +6,13 @@ body {
   font-family: 'Trebuchet MS', 'Arial', 'sans-serif';
 }
 
+h1 {
+  font-size: 30px;
+  margin: 0;
+  padding: 0;
+  color: #fff;
+}
+
 .app {
   max-width: 1080px;
   margin: 20px auto;
@@ -14,8 +21,17 @@ body {
 
 .button-container .info-container {
   display: flex;
+  justify-content: space-between;
   align-items: center;
 }
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
 
 .info-container {
   display: flex;
@@ -24,7 +40,7 @@ body {
 
 .button-container button {
   margin: 0 5px;
-  padding: 5px 10px;
+  padding: 5px 15px;
   border-radius: 12px;
   background-color: transparent;
   font-size: 10px;
@@ -38,6 +54,7 @@ body {
 
 .edit:hover{
   background-color: rgb(182, 223, 186);
+  color: #fff;
 }
 
 .edit:active{
@@ -54,6 +71,7 @@ body {
 
 .delete:hover{
   background-color: rgb(255, 201, 193);
+  color: #fff;
 }
 
 .delete:active{
@@ -64,9 +82,8 @@ body {
 
 .create {
   width: 45%;
-  padding-left: 5px;
   border: 1.5px solid rgb(108, 115, 148);
-  color: rgb(35,38,47);
+  color: #fff;
   text-transform: uppercase;
   cursor: pointer;
 }
@@ -81,21 +98,39 @@ body {
   background-color: rgba(0,191,255,1);
 } 
 
+.createLogin {
+  width: 45%;
+  border: 1.5px solid rgb(108, 115, 148);
+  color: black;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.createLogin:hover{
+  color: rgba(0,191,255,1);
+  border: 1.5px solid rgba(0,191,255,1);
+}
+
+.createLogin:active{
+  color: rgba(0,191,255,1);
+  background-color: rgba(0,191,255,1);
+} 
+
 .signout {
-  border: 1.5px solid rgb(255, 175, 163);
+  border: 1.5px solid rgb(108, 115, 148);
   color: rgb(234, 234, 234);
-  background-color: rgb(255, 175, 163) !important;
+  text-transform: uppercase;
 }
 
 .signout:hover{
-  background-color: rgb(175, 94, 94) !important;
-  border: 1.5px solid rgb(175, 94, 94); 
+  border: 1.5px solid rgba(0,191,255,1); 
+  color: rgba(0,191,255,1);
 }
 
 .signout:active{
-  color: rgb(255, 255, 255);
-  background-color: rgb(171, 81, 81) !important;
-  border: 1.5px solid rgb(171, 81, 81) !important;
+  color: rgba(0,191,255,1);
+  background-color: rgba(0,191,255,1)!important;
+  border: 1.5px solid rgba(0,191,255,1) !important;
 } 
 
 input {
@@ -148,6 +183,7 @@ input:focus {
 
 .list-header{
   width: 100%;
+  min-height: 100px;
   display: flex;
   justify-content: space-between;
   border-bottom: rgba(0,0,0,0.05) 1px solid;
@@ -161,9 +197,12 @@ input:focus {
   margin: 10px 0;
   border-radius: 10px;
   box-shadow: rgba(0,0,0,0.08) 0px 0px 0px 1px;
+  background: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border: 1.5px solid rgba(0,191,255,1);
+  border-radius: 15px;
 }
 
 .tick {
@@ -182,6 +221,7 @@ input:focus {
   width: 100%;
   display: flex;
   align-items: center;
+  max-width: 100px;
 }
 
 /* Auth */
@@ -206,7 +246,7 @@ input:focus {
 .auth-container-box form {
   display: flex;
   flex-direction: column;
-  height: 350px;
+  height: 300px;
   padding: 20px;
 }
 
@@ -339,7 +379,14 @@ input:focus {
   font-size: 13px;
   margin:10px;
   color: rgb(114,114,144);
-
+  color:#00BFFF;
+  text-shadow: 0 0 5px #fff,
+                 0 0 10px #fff, 
+                 0 0 20px green, 
+                 0 0 30px green, 
+                 0 0 40px green, 
+                 0 0 55px green, 
+                 0 0 70px green;
 }
 
 .outer-bar {
@@ -353,3 +400,26 @@ input:focus {
 .inner-bar {
 height: 14px;
 }	
+
+.close-modal {
+  font-size: small;
+  right: 0;
+  top: 0;
+  padding: 20px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.close-modal:hover {
+  box-shadow: 0 15px 100px rgba(0,191,255,1);
+  border-radius: 50%;
+  color: #00BFFF;
+}
+
+.error {
+  color: rgb(255, 0, 0);
+  font-size: 12px;
+  margin: 0;
+  padding: 0 15px;
+}

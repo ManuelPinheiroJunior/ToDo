@@ -52,7 +52,7 @@ const Auth = () => {
         <label className="login-babel">Password</label>
         <input type="password" placeholder="password" onChange={ (e) => setPassword(e.target.value)} />
         {!isLogin && <input type="password" placeholder="confirm password" onChange={ (e) => setConfirmPassword(e.target.value)} />}
-        <input type="submit" className="create" value="Sign in" onClick={(e) => handleSubmit(e, isLogin ? 'login' : 'signup')} />
+        <input type="submit" className="createLogin" value="Sign in" onClick={(e) => handleSubmit(e, isLogin ? 'login' : 'signup')} />
         {error && <p className="error">{error}</p>}
       </form>
       <div className="auth-options">
