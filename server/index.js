@@ -23,7 +23,8 @@ app.get('/todos/:userEmail', async (req, res) => {
         const userEmailSql = userEmail;
         const todos = await sql`SELECT * FROM todos WHERE user_email = ${userEmailSql}` ;
         res.status(200).json(todos)
-    } catch (e) {       
+    } catch (e) { 
+        console.log(e)      
         res.status(500).json({message: e.message})
     }
 })
@@ -106,7 +107,7 @@ app.post('/login', async (req, res) => {
              res.status(401).json({detail: 'Login Failed'})
             }
     } catch (e) {
-        res.status(500).json({message: 'Server error'})
+        res.status(500).json({message: e.message})
     }
 })
 
