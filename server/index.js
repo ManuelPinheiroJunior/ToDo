@@ -24,7 +24,7 @@ app.get('/todos/:userEmail', async (req, res) => {
         const todos = await sql`SELECT * FROM todos WHERE user_email = ${userEmailSql}` ;
         res.status(200).json(todos)
     } catch (e) {       
-        res.status(500).json({message: 'Server error'})
+        res.status(500).json({message: e.message})
     }
 })
 
