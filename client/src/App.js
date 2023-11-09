@@ -41,7 +41,6 @@ function App() {
     <p className='user-email'>Welcome Back {userEmail}</p>
     {sortedTasks?.map((task) => <ListItem key={task.id} getData={getData} task={task} />)}
     </> }
-    <p className='copyright'>Create Coding LLC</p>
     </div>
    </>
   );

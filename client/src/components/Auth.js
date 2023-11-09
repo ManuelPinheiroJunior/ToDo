@@ -47,17 +47,21 @@ const Auth = () => {
     <div className="auth-container-box">
       <form>
         <h2>{isLogin ? 'Please Log in' : 'Please sign up!'}</h2>
+        <label className="login-label">E-mail</label>
         <input type="text" placeholder="email" onChange={ (e) => setEmail(e.target.value)} />
+        <label className="login-babel">Password</label>
         <input type="password" placeholder="password" onChange={ (e) => setPassword(e.target.value)} />
         {!isLogin && <input type="password" placeholder="confirm password" onChange={ (e) => setConfirmPassword(e.target.value)} />}
         <input type="submit" className="create" value="Sign in" onClick={(e) => handleSubmit(e, isLogin ? 'login' : 'signup')} />
         {error && <p className="error">{error}</p>}
       </form>
       <div className="auth-options">
-        <button onClick={ () => viewLogin(false)} style={{backgroundColor: !isLogin ? 'rgb(255,255,255)' : 'rgb(188, 188, 188)'}}>
-          Sign Up</button>
-        <button onClick={ () => viewLogin(true)} style={{backgroundColor: !isLogin ? 'rgb(255,255,255)' : 'rgb(188, 188, 188)'}}>
-          Login</button>
+        <button className="custom-btn btn" onClick={ () => viewLogin(false)} style={{backgroundColor: !isLogin ? 'rgb(255,255,255)' : 'rgb(188, 188, 188)'}}>
+         <span>SIGN UP</span> 
+        </button>
+        <button className="custom-btn btn" onClick={ () => viewLogin(true)} style={{backgroundColor: !isLogin ? 'rgb(255,255,255)' : 'rgb(188, 188, 188)'}}>
+          <span>LOGIN</span>
+        </button>
     </div>
    </div>
    </div>
