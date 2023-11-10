@@ -14,8 +14,8 @@ const Modal = ({ mode , setShowModal, getData, task }) => {
     date: editMode ? task.date : new Date() 
   })
 
-  const postData = async (e) => {
-    e.preventDefault()
+  const postData = async () => {
+ 
     try {
       const response = await fetch(`${process.env.REACT_APP_SERVERURL}/todos`, {
         method: 'POST',
@@ -23,11 +23,9 @@ const Modal = ({ mode , setShowModal, getData, task }) => {
         body: JSON.stringify(data)
       })
       if (response.status === 200) {
-        console.log('data', response)
-        setShowModal(false)
         getData()
       }
-      console.log(data)
+
     } catch (e) {
       console.log(e)
     } finally {
@@ -45,11 +43,9 @@ const Modal = ({ mode , setShowModal, getData, task }) => {
           body: JSON.stringify(data)
         })
         if (response.status === 200) {
-          console.log('data', response)
           setShowModal(false)
           getData()
         }
-        console.log(data)
       }
       catch (e) {
         console.log(e)

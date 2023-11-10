@@ -96,13 +96,14 @@ app.post('/login', async (req, res) => {
     try {
         const users = await sql`SELECT * FROM users WHERE email = ${email}` 
 
-        if (!users.rows.length) return res.json({detail: 'User not found'})
 
-         const success = await bcrypt.compare(password, users.rows[0].hashed_password)
+        if (!users.length) return res.json({detail: 'User not found'})
+
+         const success = await bcrypt.compare(password, users[0].hashed_password)
          const token = jwt.sign({ email }, 'secret', { expiresIn: '1hr' })
 
          if (success) {
-             res.status(200).json({'email': users.rows[0].email, token})
+             res.status(200).json({'email': users[0].email, token})
             } else {
              res.status(401).json({detail: 'Login Failed'})
             }

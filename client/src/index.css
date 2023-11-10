@@ -13,6 +13,13 @@ h1 {
   color: #fff;
 }
 
+h3 {
+  font-size: 20px;
+  margin: 0;
+  padding: 15px;
+  color: #000000;
+}
+
 .app {
   max-width: 1080px;
   margin: 20px auto;
@@ -83,7 +90,7 @@ h1 {
 .create {
   width: 45%;
   border: 1.5px solid rgb(108, 115, 148);
-  color: #fff;
+  color: rgba(0,191,255,1);
   text-transform: uppercase;
   cursor: pointer;
 }
@@ -157,11 +164,16 @@ input:focus {
 }
 
 .modal {
+  position: absolute;
+  padding: 4px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 15px;
   width: 600px;
-  background-color: rgb(255, 255, 255);
-  padding: 40px;
-  border-radius: 10px;
-  box-shadow: rgba(0,0,0,0.05) 0px 6px 24px, rgba(0,0,0,0.08) 0px 0px 0px 1px;
+  background: #fff;
+  border: 1px solid rgba(0,191,255,1);
+  box-shadow: 0 15px 100px rgba(0,191,255,1);
 }
 
 .modal .form-title-container {
@@ -221,7 +233,6 @@ input:focus {
   width: 100%;
   display: flex;
   align-items: center;
-  max-width: 100px;
 }
 
 /* Auth */
@@ -405,17 +416,13 @@ height: 14px;
   font-size: small;
   right: 0;
   top: 0;
-  padding: 20px;
+  margin: 0 25px;
+  padding: 12px;
   background: transparent;
   border: none;
   cursor: pointer;
 }
 
-.close-modal:hover {
-  box-shadow: 0 15px 100px rgba(0,191,255,1);
-  border-radius: 50%;
-  color: #00BFFF;
-}
 
 .error {
   color: rgb(255, 0, 0);

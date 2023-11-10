@@ -16,7 +16,7 @@ function App() {
     const response = await fetch(`${process.env.REACT_APP_SERVERURL}/todos/${userEmail}`) 
     const data = await response.json()
     setTasks(data)
-    console.log('1',data)
+    
     } catch (e) {
       console.log(e)
     }
@@ -24,7 +24,7 @@ function App() {
 
   
   useEffect(() => {
-    if(authToken) getData()
+    getData()
   }, [])
 
   const sortedTasks = tasks?.sort((a, b) => new Date(a.date) - new Date(b.date))
