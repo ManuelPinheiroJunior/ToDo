@@ -43,10 +43,14 @@ const Auth = () => {
 
 
   return (
-   <div className="auth-container">
-    <div className="auth-container-box">
-      <form>
-        <h2>{isLogin ? 'Please Log in' : 'Please sign up!'}</h2>
+ <>
+     <div className="auth-container-left">
+        <img src="Anime.svg" alt="logo" />
+        </div>
+    <div className="auth-container-right">
+      <div className="auth-container-right-card">
+      <form >
+        <h2>{isLogin ? 'Please Login' : 'Please sign up!'}</h2>
         <label className="login-label">E-mail</label>
         <input type="text" placeholder="email" onChange={ (e) => setEmail(e.target.value)} />
         <label className="login-babel">Password</label>
@@ -65,6 +69,7 @@ const Auth = () => {
     </div>
    </div>
    </div>
+   </>
   );
 }
 
