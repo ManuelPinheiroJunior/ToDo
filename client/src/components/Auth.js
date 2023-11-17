@@ -50,13 +50,13 @@ const Auth = () => {
     <div className="auth-container-right">
       <div className="auth-container-right-card">
       <form >
-        <h2>{isLogin ? 'Please Login' : 'Please sign up!'}</h2>
+        <h2>{isLogin ? 'Login' : 'Please Sign Up!'}</h2>
         <label className="login-label">E-mail</label>
-        <input type="text" placeholder="email" onChange={ (e) => setEmail(e.target.value)} />
+        <input className="Basic-Input" type="text" placeholder="email" onChange={ (e) => setEmail(e.target.value)} />
         <label className="login-babel">Password</label>
-        <input type="password" placeholder="password" onChange={ (e) => setPassword(e.target.value)} />
-        {!isLogin && <input type="password" placeholder="confirm password" onChange={ (e) => setConfirmPassword(e.target.value)} />}
-        <input type="submit" className="createLogin" value="Sign in" onClick={(e) => handleSubmit(e, isLogin ? 'login' : 'signup')} />
+        <input className="Basic-Input" type="password" placeholder="password" onChange={ (e) => setPassword(e.target.value)} />
+        {!isLogin && <input className="Basic-Input" type="password" placeholder="confirm password" onChange={ (e) => setConfirmPassword(e.target.value)} />}
+        <input type="submit" className="createLogin" value="Sign in" onClick={(e) => handleSubmit(e, isLogin ? 'Login' : 'Signup')} />
         {error && <p className="error">{error}</p>}
       </form>
       <div className="auth-options">

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useCookies } from 'react-cookie';
 
 
@@ -14,8 +14,9 @@ const Modal = ({ mode , setShowModal, getData, task }) => {
     date: editMode ? task.date : new Date() 
   })
 
-  const postData = async () => {
- 
+  const postData = async (e) => {
+    console.log("🚀 ~ file: Modal.js:18 ~ postData ~ e:", e)
+    e.preventDefault(e)
     try {
       const response = await fetch(`${process.env.REACT_APP_SERVERURL}/todos`, {
         method: 'POST',
@@ -23,13 +24,14 @@ const Modal = ({ mode , setShowModal, getData, task }) => {
         body: JSON.stringify(data)
       })
       if (response.status === 200) {
-        getData()
+        setShowModal(false)
       }
-
+      
     } catch (e) {
       console.log(e)
     } finally {
       setShowModal(false)
+      window.location.reload();
     }
   }
 
@@ -55,6 +57,7 @@ const Modal = ({ mode , setShowModal, getData, task }) => {
       }
   }
 
+  
 
 
   const handleChange = (e) => {
@@ -69,6 +72,8 @@ const Modal = ({ mode , setShowModal, getData, task }) => {
 
 
 
+
+
   return (
     <>
    <div className="overlay">
@@ -79,6 +84,7 @@ const Modal = ({ mode , setShowModal, getData, task }) => {
       </div>
 
       <form className="form">
+      <div className="Basic-Input">
       <input 
       name="title" 
       maxLength={30} 
@@ -86,22 +92,27 @@ const Modal = ({ mode , setShowModal, getData, task }) => {
       value={data.title}
       onChange={handleChange}
        />
+      </div>
       <br />
       <label> Drag to select your current progress </label>
       <input 
+      id="progress"
+      name="progress"
       type="range"
       min="0"
       max="100"
-      name="progress"
+      step="0.5"
       value={data.progress}
       onChange={handleChange}
       /> 
+      <div className="submit">
       <input 
       type="submit" 
       value="Save" 
       className={mode} 
       onClick={editMode ? editData : postData}
       />
+      </div>
       </form>
 
     </div>
