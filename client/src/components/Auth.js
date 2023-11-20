@@ -51,7 +51,7 @@ const Auth = () => {
       </div>
       <div className="auth-container-right">
         <div className="auth-container-right-card">
-          <form onSubmit={(e) => handleSubmit(e, isLogin ? 'Login' : 'Signup')}>
+          <form >
             <h2>{isLogin ? 'Login' : 'Please Sign Up'}</h2>
             <label className="login-label">E-mail</label>
             <input className="Basic-Input" type="text" placeholder="email" value={email} onChange={(e) => setEmail(e.target.value)} />
@@ -59,7 +59,7 @@ const Auth = () => {
             <input className="Basic-Input" type="password" placeholder="password" value={password} onChange={(e) => setPassword(e.target.value)} />
             {!isLogin && <input className="Basic-Input" type="password" placeholder="confirm password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />}
             {error && <p className="error">{error}</p>}
-            <input type="submit" className="createLogin" value="Sign in" />
+            <input type="submit" className="createLogin" value="Sign in"  onClick={(e) => handleSubmit(e, isLogin ? 'Login' : 'Signup')}/>
             <div className="auth-options">
             <label className="login-label">Don't have an account?</label>
             <a href="#" onClick={() => viewLogin(!isLogin)}>{isLogin ? 'Sign up Now' : 'Back to login'}</a>
